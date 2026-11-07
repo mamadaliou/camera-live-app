@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live avec consentement</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<h1>Live privé — avec consentement</h1>
+<p class="notice">La caméra et le microphone ne démarrent qu'après ton clic sur « Accepter et démarrer ». Chaque participant peut quitter à tout moment.</p>
+<section class="setup">
+<label>Code de salon <input id="room" maxlength="12" placeholder="Ex. 4A7B2C"></label>
+<label>Ton rôle <select id="role"><option value="viewer">Voir le live</option><option value="camera">Partager caméra + micro</option></select></label>
+<button id="join">Rejoindre le salon</button>
+</section>
+<section id="consent" hidden>
+<h2>Autorisation de partage</h2><p>Tu vas partager la vidéo et le son de ton appareil avec la personne qui possède le même code de salon.</p>
+<button id="accept">Accepter et démarrer</button><button id="decline" class="secondary">Refuser</button>
+</section>
+<section class="videos"><div><h2>Flux partagé</h2><video id="remote" autoplay playsinline></video></div><div><h2>Mon aperçu</h2><video id="local" autoplay muted playsinline></video></div></section>
+<section id="chat"><h2>Messages dans l’application</h2><div id="messages" aria-live="polite"></div><form id="chat-form"><input id="message" maxlength="1000" placeholder="Écrire un message…" autocomplete="off"><button>Envoyer</button></form><p class="small">Ce chat n’envoie pas de SMS et ne lit pas les SMS du téléphone.</p></section>
+<button id="leave" class="secondary">Quitter / arrêter le partage</button><p id="status" role="status"></p>
+</main><script src="/socket.io/socket.io.js"></script><script src="app.js"></script></body></html>
